@@ -1,0 +1,159 @@
+---
+import Section from '@/components/Section.astro';
+import Divider from '@/components/Divider.astro';
+import Reproductor from '@/components/Reproductor.astro';
+
+const TIMESTAMP = 1797051600000;
+---
+
+<main class="flex flex-col items-center justify-center">
+	<Section class:list={"bg-[url(/bg-1.webp)] bg-cover bg-center bg-fixed items-center justify-end"}>
+		<header>
+			<h1 class="text-rose-500 font-dancing text-center text-6xl before:content-['--'] after:content-['--'] pb-12">Mis XV</h1>
+		</header>
+		<Divider />
+	</Section>
+	<Section class:list={"bg-rose-400 items-center justify-center gap-24 text-4xl font-dancing px-8"}>
+		<header class="w-full border-b border-b-rose-600/50">
+			<h2>MIS PADRES</h2>
+		</header>
+		<article class="flex flex-col items-center justify-center gap-8">
+			<h2>KAREN FLORES LOPEZ</h2>
+			<h2>&</h2>
+			<h2>ALEJANDRO TERRAZAS FLORES</h2>
+		</article>
+		<Divider />
+	</Section>
+	<Section class:list={""}>
+		<!-- REPRODUCTOR DE MÚSICA -->
+		<article>
+			<Reproductor />
+		</article>
+		<Divider />
+	</Section>
+	<Section class:list={"justify-center items-center bg-rose-400"}>
+		<!-- CARTA  -->
+		<article></article>
+		<!-- TIMER  -->
+		<article
+			data-date={TIMESTAMP}
+			class="flex flex-col justify-center items-center text-center text-[#cdad72] font-bold"
+		>
+			<h2 class="text-xl">SÁBADO, 31 DE DICIEMBRE DEL 2026</h2>
+			<div class="flex gap-4">
+				<div class="flex flex-col items-center">
+					<span class="text-4xl" data-days>00</span>
+					<span>Dias</span>
+				</div>
+				<div class="flex flex-col items-center">
+					<span class="text-4xl" data-hours>00</span>
+					<span>Horas</span>
+				</div>
+				<div class="flex flex-col items-center">
+					<span class="text-4xl" data-minutes>00</span>
+					<span>Minutos</span>
+				</div>
+				<div class="flex flex-col items-center">
+					<span class="text-4xl" data-seconds>00</span>
+					<span>Segundos</span>
+				</div>
+			</div>
+		</article>
+		<!-- GALERIA DE FOTOS  -->
+		<article></article>
+	</Section>
+	<Section class:list={"p-8"}>
+		<!-- MAPA  -->
+		<section class="flex flex-col items-center justify-center relative">
+			<h2 class="text-2xl bold text-rose-600">UBICACIÓN</h2>
+			<article class="flex flex-col items-center pb-12">
+				<h3 class="text-rose-500">SALÓN DE EVENTOS "EL CASTILLO"</h3>
+				<p class="pb-4">Av. de la Juventud 123, Col. Centro, Ciudad, Estado, CP 12345</p>
+				<iframe 
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
+					width="350"
+					height="350"
+					style="border:0;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="strict-origin-when-cross-origin"
+				>
+				</iframe>
+			</article>
+			<article class="flex flex-col items-center pb-12">
+				<h3 class="text-rose-500">IGLESIA "SAN JUAN BAUTISTA"</h3>
+				<p class="pb-4">Calle Principal 456, Col. Centro, Ciudad, Estado, CP 67890</p>
+				<iframe 
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
+					width="350"
+					height="350"
+					style="border:0;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="strict-origin-when-cross-origin">
+				</iframe>
+			</article>
+			<Divider class:list={"opacity-75"}/>
+		</section>
+		<!-- CÓDIGO DE VESTIMENTA  -->
+		<article class="text-center p-12 relative">
+			<h2 class="text-xl text-rose-600">CÓDIGO DE VESTIMENTA</h2>
+			<h3>Formal</h3>
+			<Divider class:list={"opacity-75"}/>
+		</article>
+		<!-- GIFTS  -->
+		<!-- <article></article> -->
+	</Section>
+	<Section>
+		<!-- CONFIRMAR ASISTENCIA -->
+		<article></article>
+	</Section>
+</main>
+
+<script>
+	const SECOND = 1000;
+	const MINUTE = 60 * SECOND;
+	const HOUR = 60 * MINUTE;
+	const DAY = 24 * HOUR;
+
+	function init() {
+		const $countdown = document.querySelector("[data-date]");
+		if (!$countdown) return;
+
+		const $meses = $countdown.querySelector("[data-meses]");
+		const $days = $countdown.querySelector("[data-days]");
+		const $hours = $countdown.querySelector("[data-hours]");
+		const $minutes = $countdown.querySelector("[data-minutes]");
+		const $seconds = $countdown.querySelector("[data-seconds]");
+
+		const timestamp = $countdown.getAttribute("data-date");
+		if (!timestamp) return;
+
+		const date = new Date(+timestamp).getTime();
+
+		const formatTime = (time: number) => {
+			return Math.floor(time).toString().padStart(2, "0");
+		};
+		function updateCountdown() {
+			const now = Date.now();
+			const diff = date - now;
+
+			if ($days instanceof HTMLElement) {
+				$days.innerText = formatTime(diff / DAY);
+			}
+			if ($hours instanceof HTMLElement) {
+				$hours.innerText = formatTime((diff % DAY) / HOUR);
+			}
+			if ($minutes instanceof HTMLElement) {
+				$minutes.innerText = formatTime((diff % HOUR) / MINUTE);
+			}
+			if ($seconds instanceof HTMLElement) {
+				$seconds.innerText = formatTime((diff % MINUTE) / SECOND);
+			}
+		}
+
+		setInterval(updateCountdown, SECOND);
+  	}
+
+  init();
+</script>
