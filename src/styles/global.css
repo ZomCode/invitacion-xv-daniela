@@ -1,1 +1,51 @@
 @import "tailwindcss";
+
+/* dancing-script-latin-wght-normal */
+@font-face {
+  font-family: 'Dancing Script Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(@fontsource-variable/dancing-script/files/dancing-script-latin-wght-normal.woff2) format(woff2) tech(variations);
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@theme{
+  --font-dancing: 'Dancing Script Variable', cursive;
+
+  --color-candy-50: #ffe5e7;
+  --color-candy-100: #ffcccf;
+  --color-candy-200: #ff999e;
+  --color-candy-300: #ff666e;
+  --color-candy-400: #ff333d;
+  --color-candy-500: #ff000d;
+  --color-candy-600: #cc000a;
+  --color-candy-700: #990008;
+  --color-candy-800: #660005;
+  --color-candy-900: #330003;
+  --color-candy-950: #240002;
+
+  --color-dusty-rose-50: #f6eeee;
+  --color-dusty-rose-100: #eeddde;
+  --color-dusty-rose-200: #ddbbbd;
+  --color-dusty-rose-300: #cc999c;
+  --color-dusty-rose-400: #bb777b;
+  --color-dusty-rose-500: #aa555a;
+  --color-dusty-rose-600: #884448;
+  --color-dusty-rose-700: #663336;
+  --color-dusty-rose-800: #442224;
+  --color-dusty-rose-900: #221112;
+  --color-dusty-rose-950: #180c0d;
+
+  --almond-silk-50: #f7f0ee;
+  --almond-silk-100: #eee1dd;
+  --almond-silk-200: #ddc3bb;
+  --almond-silk-300: #cda598;
+  --almond-silk-400: #bc8876;
+  --almond-silk-500: #ab6a54;
+  --almond-silk-600: #895543;
+  --almond-silk-700: #673f32;
+  --almond-silk-800: #442a22;
+  --almond-silk-900: #221511;
+  --almond-silk-950: #180f0c;
+}

@@ -1,20 +1,33 @@
 ---
 import Section from '@/components/Section.astro';
 import Divider from '@/components/Divider.astro';
+import SectionFixed from '@/components/SectionFixed.astro';
 import Reproductor from '@/components/Reproductor.astro';
 
 const TIMESTAMP = 1797051600000;
 ---
 
 <main class="flex flex-col items-center justify-center">
-	<Section class:list={"bg-[url(/bg-1.webp)] bg-cover bg-center bg-fixed items-center justify-end"}>
-		<header>
-			<h1 class="text-rose-500 font-dancing text-center text-6xl before:content-['--'] after:content-['--'] pb-12">Mis XV</h1>
-		</header>
-		<Divider />
-	</Section>
-	<Section class:list={"bg-rose-400 items-center justify-center gap-24 text-4xl font-dancing px-8"}>
-		<header class="w-full border-b border-b-rose-600/50">
+	<SectionFixed img="bg-1.webp">
+		<Section class="min-h-svh min-w-svw flex items-center justify-end">
+			<header class="mx-auto px-4 sm:px-6 lg:px-8">
+				<h1 
+					class="
+						pb-12
+						font-dancing 
+						text-center 
+						text-6xl 
+						text-dusty-rose-500
+						"
+					>
+						Mis XV
+					</h1>
+				</header>
+		</Section>
+	</SectionFixed>
+	<Section class:list={"min-h-screen bg-dusty-rose-400 items-center justify-center gap-24 text-4xl font-dancing px-8"}>
+		<Divider class:list={"z-100 -top-4"}/>
+		<header class="w-full border-b border-b-dusty-rose-600/50">
 			<h2>MIS PADRES</h2>
 		</header>
 		<article class="flex flex-col items-center justify-center gap-8">
@@ -24,20 +37,202 @@ const TIMESTAMP = 1797051600000;
 		</article>
 		<Divider />
 	</Section>
-	<Section class:list={""}>
+	<Section class:list={"min-h-[75svh] justify-center items-center bg-dusty-rose-900 px-8"}>
 		<!-- REPRODUCTOR DE MÚSICA -->
-		<article>
-			<Reproductor />
-		</article>
+		<h2 class="text-dusty-rose-400 font-dancing text-4xl pb-8">UN POCO DE MÚSICA</h2>
+		<Reproductor 
+			src="/Calvin Harris - Blame (Audio) ft. John Newman.mp3"
+			title="Calvin Harris - Blame ft. John Newman"
+		/>
 		<Divider />
 	</Section>
-	<Section class:list={"justify-center items-center bg-rose-400"}>
-		<!-- CARTA  -->
-		<article></article>
+	<Section class:list={"min-h-screen justify-between items-center bg-dusty-rose-400 p-8"}>
+		<!-- CARTA -->
+		<article class="w-full flex justify-center items-center">
+			<div class="relative h-160 sm:h-160 max-h-screen w-full max-w-175">
+				<div
+					class="
+						absolute left-1/2 top-2 md:top-8 z-20
+						h-120 md:h-90  w-[82%]
+						-translate-x-1/2
+						rounded-sm
+						bg-[#fffdf7]
+						p-4 md:p-10
+						shadow-xl
+						transition-transform duration-500
+					"
+				>
+					<!-- Texto -->
+					<h2
+						class="
+						mb-6
+						font-serif
+						text-3xl
+						italic
+						text-stone-800
+						"
+					>
+						Para mis queridos invitados,
+					</h2>
+					<p
+						class="
+						font-serif
+						text-lg
+						leading-8
+						text-stone-600
+						"
+					>
+						Hay palabras que merecen ser escritas con calma,
+						guardadas entre papel y tinta, y entregadas como
+						pequeños recuerdos.
+					</p>
+					<p
+						class="
+						mt-5
+						font-serif
+						text-lg
+						leading-8
+						text-stone-600
+						"
+					>
+						Espero que esta carta encuentre un lugar especial
+						entre tus recuerdos y que cada palabra conserve
+						un poco del momento en que fue escrita.
+					</p>
+				</div>
+				<div
+					class="
+						absolute
+						bottom-50
+						sm:bottom-64
+						left-1/2
+						z-10
+						h-34
+						sm:h-70
+						w-[90%]
+						-translate-x-1/2
+						origin-bottom
+						bg-[#ded2bd]
+						shadow-md
+						[clip-path:polygon(0_100%,50%_0,100%_100%)]
+						sm:[clip-path:polygon(0_100%,50%_0,100%_100%)]
+					"
+				>
+					<!-- Interior de la solapa -->
+					<div
+						class="
+						absolute inset-1.5
+						bg-[#795731]
+						[clip-path:polygon(0_100%,50%_0,100%_100%)]
+						sm:[clip-path:polygon(0_100%,50%_0,100%_100%)]
+						"
+					>
+					</div>
+				</div>
+				<div
+					class="
+						absolute
+						bottom-0
+						left-1/2
+						z-30
+						h-52
+						sm:h-66
+						w-[90%]
+						-translate-x-1/2
+						overflow-hidden
+						rounded-b-md
+						bg-[#d6c6aa]
+						shadow-2xl
+					"
+				>
+					<!-- Pliegue izquierdo -->
+					<div
+						class="
+						absolute inset-0
+						bg-[#e3d7c2]
+						[clip-path:polygon(0_0,55%_50%,0_100%)]
+						"
+					>
+					</div>
+					<!-- Pliegue derecho -->
+					<div
+						class="
+						absolute inset-0
+						bg-[#d8cab1]
+						[clip-path:polygon(100%_0,45%_50%,100%_100%)]
+						"
+					>
+					</div>
+					<!-- Pliegue inferior -->
+					<div
+						class="
+						absolute inset-0
+						bg-[#eadfca]
+						[clip-path:polygon(0_100%,50%_42%,100%_100%)]
+						"
+					>
+					</div>
+					<!-- BROCHE -->
+					<div
+						class="
+						absolute
+						bottom-22
+						sm:bottom-28
+						left-1/2
+						z-40
+						-translate-x-1/2
+						"
+					>
+						<!-- Broche exterior -->
+						<div
+							class="
+								relative
+								flex h-14 w-14
+								items-center justify-center
+								rounded-full
+								border-[3px]
+								border-[#92734c]
+								bg-linear-to-br
+								from-[#d9bd83]
+								via-[#b58c55]
+								to-[#795731]
+								shadow-lg
+							"
+						>
+							<!-- Círculo interior -->
+							<div
+								class="
+								flex h-10 w-10
+								items-center justify-center
+								rounded-full
+								border
+								border-[#ead6a8]/60
+								bg-[#a77b46]
+								shadow-inner
+								"
+							>
+								<!-- Inicial -->
+								<span
+								class="
+									font-dancing
+									text-xl
+									font-bold
+									italic
+									text-[#f2dfb8]
+								"
+								>
+								D
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
 		<!-- TIMER  -->
 		<article
 			data-date={TIMESTAMP}
-			class="flex flex-col justify-center items-center text-center text-[#cdad72] font-bold"
+			class="flex flex-col justify-center items-center text-center text-dusty-rose-100 font-bold"
 		>
 			<h2 class="text-xl">SÁBADO, 31 DE DICIEMBRE DEL 2026</h2>
 			<div class="flex gap-4">
@@ -62,13 +257,13 @@ const TIMESTAMP = 1797051600000;
 		<!-- GALERIA DE FOTOS  -->
 		<article></article>
 	</Section>
-	<Section class:list={"p-8"}>
+	<Section class:list={"bg-dusty-rose-800"}>
 		<!-- MAPA  -->
-		<section class="flex flex-col items-center justify-center relative">
-			<h2 class="text-2xl bold text-rose-600">UBICACIÓN</h2>
-			<article class="flex flex-col items-center pb-12">
-				<h3 class="text-rose-500">SALÓN DE EVENTOS "EL CASTILLO"</h3>
-				<p class="pb-4">Av. de la Juventud 123, Col. Centro, Ciudad, Estado, CP 12345</p>
+		<section class="flex flex-col items-center justify-between relative">
+			<h2 class="text-dusty-rose-600 text-3xl font-dancing pt-4">UBICACIÓN</h2>
+			<article class="flex flex-col items-center py-4">
+				<h3 class="text-dusty-rose-500 text-xl">SALÓN DE EVENTOS "EL CASTILLO"</h3>
+				<p class="pb-4 text-dusty-rose-300">Av. de la Juventud 123, Col. Centro, Ciudad, Estado, CP 12345</p>
 				<iframe 
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
 					width="350"
@@ -80,9 +275,9 @@ const TIMESTAMP = 1797051600000;
 				>
 				</iframe>
 			</article>
-			<article class="flex flex-col items-center pb-12">
-				<h3 class="text-rose-500">IGLESIA "SAN JUAN BAUTISTA"</h3>
-				<p class="pb-4">Calle Principal 456, Col. Centro, Ciudad, Estado, CP 67890</p>
+			<article class="flex flex-col items-center py-4">
+				<h3 class="text-dusty-rose-500 text-xl">IGLESIA "SAN JUAN BAUTISTA"</h3>
+				<p class="pb-4 text-dusty-rose-300">Calle Principal 456, Col. Centro, Ciudad, Estado, CP 67890</p>
 				<iframe 
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
 					width="350"
@@ -90,17 +285,20 @@ const TIMESTAMP = 1797051600000;
 					style="border:0;"
 					allowfullscreen=""
 					loading="lazy"
-					referrerpolicy="strict-origin-when-cross-origin">
+					referrerpolicy="strict-origin-when-cross-origin"
+				>
 				</iframe>
 			</article>
 			<Divider class:list={"opacity-75"}/>
 		</section>
 		<!-- CÓDIGO DE VESTIMENTA  -->
-		<article class="text-center p-12 relative">
-			<h2 class="text-xl text-rose-600">CÓDIGO DE VESTIMENTA</h2>
-			<h3>Formal</h3>
+		<section class="flex flex-col items-center justify-center relative">
+			<article class="text-center p-12 relative">
+				<h2 class="text-3xl text-dusty-rose-50 font-dancing">CÓDIGO DE VESTIMENTA</h2>
+				<h3 class="text-2xl py-4 text-dusty-rose-100">Formal</h3>
+			</article>
 			<Divider class:list={"opacity-75"}/>
-		</article>
+		 </section>
 		<!-- GIFTS  -->
 		<!-- <article></article> -->
 	</Section>

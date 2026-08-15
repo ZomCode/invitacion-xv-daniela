@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# INVITACIÓN XV
 
 ```sh
 npm create astro@latest -- --template basics
@@ -6,7 +6,7 @@ npm create astro@latest -- --template basics
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## 🚀 Project Structure
+## 🚀 PROJECT STRUCTURE
 
 Inside of your Astro project, you'll see the following folders and files:
 

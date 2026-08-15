@@ -1,0 +1,17 @@
+---
+interface Props {
+    class?: string;
+}
+---
+<svg 
+    viewBox="0 0 512 512"
+    class:list={[Astro.props.class]}
+>
+    <path d="M176 96h16v320h-16zM320 96h16v320h-16z"
+        fill="none" 
+        stroke="currentColor" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-width="32px"
+    />
+</svg>

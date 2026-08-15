@@ -1,0 +1,402 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+}
+
+const {
+  src,
+  title = "Audio Player",
+} = Astro.props;
+---
+
+<div
+  data-media-player
+  class="w-full max-w-2xl rounded-2xl border border-slate-100 bg-white p-5 shadow-lg
+         dark:border-dusty-rose-200 dark:bg-dusty-rose-900/50"
+>
+  <!-- Actual audio element -->
+  <audio
+    data-audio
+    src={src}
+    preload="metadata"
+  ></audio>
+
+  <!-- Title -->
+  <div class="mb-5">
+    <!-- <p class="text-xs font-medium uppercase tracking-widest text-dusty-rose-500">
+      Now playing
+    </p> -->
+
+    <h2
+      class="mt-1 truncate text-lg font-semibold text-slate-900
+             dark:text-dusty-rose-100"
+    >
+      {title}
+    </h2>
+  </div>
+
+  <!-- Main controls -->
+  <div class="flex items-center gap-4">
+
+    <!-- Play / Pause -->
+    <button
+      data-play
+      type="button"
+      aria-label="Play audio"
+      class="flex size-12 shrink-0 items-center justify-center rounded-full
+             bg-dusty-rose-600 text-white transition
+             hover:bg-dusty-rose-700
+             focus:outline-none focus:ring-2 focus:ring-dusty-rose-500
+             focus:ring-offset-2
+             dark:focus:ring-offset-slate-900"
+    >
+      <!-- Play icon -->
+      <svg
+        data-play-icon
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="size-6"
+        aria-hidden="true"
+      >
+        <path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.28-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14Z" />
+      </svg>
+
+      <!-- Pause icon -->
+      <svg
+        data-pause-icon
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="hidden size-6"
+        aria-hidden="true"
+      >
+        <path d="M7 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V5Zm6 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V5Z" />
+      </svg>
+    </button>
+
+    <!-- Progress -->
+    <div class="min-w-0 flex-1">
+
+      <label class="sr-only" for="audio-progress">
+        Audio progress
+      </label>
+
+      <input
+        data-progress
+        id="audio-progress"
+        type="range"
+        min="0"
+        max="0"
+        value="0"
+        step="0.01"
+        class="h-2 w-full cursor-pointer accent-dusty-rose-600"
+        aria-label="Audio progress"
+      />
+
+      <!-- Time -->
+      <div
+        class="mt-1 flex justify-between text-xs tabular-nums
+               text-slate-500 dark:text-slate-400"
+      >
+        <span data-current-time>0:00</span>
+        <!-- <span data-duration>0:00</span> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Volume -->
+  <div
+    class="mt-5 flex items-center justify-end gap-3
+           border-t border-slate-100 pt-4
+           dark:border-slate-800"
+  >
+    <button
+      data-mute
+      type="button"
+      aria-label="Mute audio"
+      class="rounded-lg p-2 text-slate-500 transition
+             hover:bg-slate-100 hover:text-slate-900
+             dark:text-slate-400
+             dark:hover:bg-slate-800 dark:hover:text-white"
+    >
+      <!-- Volume icon -->
+      <svg
+        data-volume-icon
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        class="size-5"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M11 5 6 9H3v6h3l5 4V5Zm4.5 3.5a5 5 0 0 1 0 7M18 6a8 8 0 0 1 0 12"
+        />
+      </svg>
+
+      <!-- Muted icon -->
+      <svg
+        data-muted-icon
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        class="hidden size-5"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M11 5 6 9H3v6h3l5 4V5Zm4 5 5 5m0-5-5 5"
+        />
+      </svg>
+    </button>
+
+    <label class="sr-only" for="audio-volume">
+      Volume
+    </label>
+
+    <input
+      data-volume
+      id="audio-volume"
+      type="range"
+      min="0"
+      max="1"
+      value="0.8"
+      step="0.01"
+      class="h-2 w-28 cursor-pointer accent-dusty-rose-600"
+      aria-label="Volume"
+    />
+
+    <span
+      data-volume-value
+      class="w-9 text-right text-xs tabular-nums text-slate-500
+             dark:text-slate-400"
+    >
+      80%
+    </span>
+  </div>
+</div>
+
+<script>
+  function formatTime(seconds: number): string {
+    if (!Number.isFinite(seconds)) {
+      return "0:00";
+    }
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+  }
+
+  function initializePlayers() {
+    const players =
+      document.querySelectorAll<HTMLElement>("[data-media-player]");
+
+    players.forEach((player) => {
+      // Prevent the same player from being initialized twice
+      if (player.dataset.initialized === "true") {
+        return;
+      }
+
+      player.dataset.initialized = "true";
+
+      const audio =
+        player.querySelector<HTMLAudioElement>("[data-audio]");
+
+      const playButton =
+        player.querySelector<HTMLButtonElement>("[data-play]");
+
+      const playIcon =
+        player.querySelector<SVGElement>("[data-play-icon]");
+
+      const pauseIcon =
+        player.querySelector<SVGElement>("[data-pause-icon]");
+
+      const progress =
+        player.querySelector<HTMLInputElement>("[data-progress]");
+
+      const currentTime =
+        player.querySelector<HTMLElement>("[data-current-time]");
+
+      const duration =
+        player.querySelector<HTMLElement>("[data-duration]");
+
+      const volume =
+        player.querySelector<HTMLInputElement>("[data-volume]");
+
+      const volumeValue =
+        player.querySelector<HTMLElement>("[data-volume-value]");
+
+      const muteButton =
+        player.querySelector<HTMLButtonElement>("[data-mute]");
+
+      const volumeIcon =
+        player.querySelector<SVGElement>("[data-volume-icon]");
+
+      const mutedIcon =
+        player.querySelector<SVGElement>("[data-muted-icon]");
+
+      if (
+        !audio ||
+        !playButton ||
+        !playIcon ||
+        !pauseIcon ||
+        !progress ||
+        !currentTime ||
+        !volume ||
+        !volumeValue ||
+        !muteButton ||
+        !volumeIcon ||
+        !mutedIcon
+      ) {
+        return;
+      }
+
+      /* -----------------------------
+       * Initial volume
+       * ----------------------------- */
+
+      audio.volume = Number(volume.value);
+
+      /* -----------------------------
+       * Play / Pause
+       * ----------------------------- */
+
+      playButton.addEventListener("click", async () => {
+        if (audio.paused) {
+          try {
+            await audio.play();
+          } catch (error) {
+            console.error("Unable to play audio:", error);
+          }
+        } else {
+          audio.pause();
+        }
+      });
+
+      audio.addEventListener("play", () => {
+        playIcon.classList.add("hidden");
+        pauseIcon.classList.remove("hidden");
+
+        playButton.setAttribute("aria-label", "Pause audio");
+      });
+
+      audio.addEventListener("pause", () => {
+        playIcon.classList.remove("hidden");
+        pauseIcon.classList.add("hidden");
+
+        playButton.setAttribute("aria-label", "Play audio");
+      });
+
+      /* -----------------------------
+       * Duration
+       * ----------------------------- */
+
+      const updateDuration = () => {
+        if (!Number.isFinite(audio.duration)) {
+          return;
+        }
+        
+        progress.max = String(audio.duration);
+        duration.textContent = formatTime(audio.duration);
+      };
+
+      audio.addEventListener("loadedmetadata", updateDuration);
+      audio.addEventListener("durationchange", updateDuration);
+
+      /* -----------------------------
+       * Progress
+       * ----------------------------- */
+
+      audio.addEventListener("timeupdate", () => {
+        progress.value = String(audio.currentTime);
+        currentTime.textContent = formatTime(audio.currentTime);
+      });
+
+      progress.addEventListener("input", () => {
+        if (!Number.isFinite(audio.duration)) {
+          return;
+        }
+
+        const newTime = Number(progress.value);
+
+        audio.currentTime = newTime;
+        currentTime.textContent = formatTime(newTime);
+      });
+
+      /* -----------------------------
+       * Audio finished
+       * ----------------------------- */
+
+      audio.addEventListener("ended", () => {
+        playIcon.classList.remove("hidden");
+        pauseIcon.classList.add("hidden");
+
+        playButton.setAttribute("aria-label", "Play audio");
+      });
+
+      /* -----------------------------
+       * Volume
+       * ----------------------------- */
+
+      volume.addEventListener("input", () => {
+        const value = Number(volume.value);
+
+        audio.volume = value;
+        audio.muted = value === 0;
+
+        volumeValue.textContent = `${Math.round(value * 100)}%`;
+      });
+
+      /* -----------------------------
+       * Mute
+       * ----------------------------- */
+
+      muteButton.addEventListener("click", () => {
+        audio.muted = !audio.muted;
+      });
+
+      audio.addEventListener("volumechange", () => {
+        const isMuted = audio.muted || audio.volume === 0;
+
+        volumeIcon.classList.toggle("hidden", isMuted);
+        mutedIcon.classList.toggle("hidden", !isMuted);
+
+        muteButton.setAttribute(
+          "aria-label",
+          isMuted ? "Unmute audio" : "Mute audio"
+        );
+
+        if (audio.muted) {
+          volumeValue.textContent = "0%";
+        } else {
+          volume.value = String(audio.volume);
+          volumeValue.textContent =
+            `${Math.round(audio.volume * 100)}%`;
+        }
+      });
+
+      /* -----------------------------
+       * Audio loading error
+       * ----------------------------- */
+
+      audio.addEventListener("error", () => {
+        console.error(
+          "The audio file could not be loaded:",
+          audio.currentSrc
+        );
+
+        duration.textContent = "--:--";
+      });
+    });
+  }
+
+  initializePlayers();
+
+  // Also works correctly when Astro page navigation is used.
+  document.addEventListener("astro:page-load", initializePlayers);
+</script>
