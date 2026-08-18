@@ -1,8 +1,9 @@
 ---
 import Section from '@/components/Section.astro';
 import Divider from '@/components/Divider.astro';
-import SectionFixed from '@/components/SectionFixed.astro';
+import PictureComponent from '@/components/Picture.astro';
 import Reproductor from '@/components/Reproductor.astro';
+import SectionFixed from '@/components/SectionFixed.astro';
 
 const TIMESTAMP = 1797051600000;
 ---
@@ -255,7 +256,10 @@ const TIMESTAMP = 1797051600000;
 			</div>
 		</article>
 		<!-- GALERIA DE FOTOS  -->
-		<article></article>
+		<Section class:list={"min-h-[90svh] flex flex-col justify-center items-center relative"}>
+			<PictureComponent alt={"Daniela"} src={"/logo-xv-daniela.websp"} class:list={"absolute -translate-y-1/2 -translate-6 z-10 rotate-12"}/>
+			<PictureComponent alt={"Daniela"} src={"/logo-xv-daniela.webp"} class:list={"absolute translate-y-1/2 translate-x-2 z-20 -rotate-12"}/>
+		</Section>
 	</Section>
 	<Section class:list={"bg-dusty-rose-800"}>
 		<!-- MAPA  -->

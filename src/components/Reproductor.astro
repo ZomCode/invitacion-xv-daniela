@@ -302,7 +302,7 @@ const {
         }
         
         progress.max = String(audio.duration);
-        duration.textContent = formatTime(audio.duration);
+        // duration.textContent = formatTime(audio.duration);
       };
 
       audio.addEventListener("loadedmetadata", updateDuration);
@@ -390,7 +390,7 @@ const {
           audio.currentSrc
         );
 
-        duration.textContent = "--:--";
+        // duration.textContent = "--:--";
       });
     });
   }
