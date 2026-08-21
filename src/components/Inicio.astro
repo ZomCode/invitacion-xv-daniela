@@ -1,44 +1,52 @@
 ---
 import Section from '@/components/Section.astro';
 import Divider from '@/components/Divider.astro';
-import PictureComponent from '@/components/Picture.astro';
+import BtnLink from '@/components/BtnUbicación.astro'
 import Reproductor from '@/components/Reproductor.astro';
-import SectionFixed from '@/components/SectionFixed.astro';
+import PictureComponent from '@/components/Picture.astro';
+import H2 from '@/assets/h2-title.astro';
+import H3 from '@/assets/h3-title.astro';
+import Paragraph from '@/assets/Paragraph.astro'
+import IconChurch from '@/assets/icon-church.astro';
+import IconCastle from '@/assets/icon-castle.astro';
+import IconWhatsapp from '@/assets/icon-whatsapp.astro';
 
 const TIMESTAMP = 1797051600000;
 ---
 
 <main class="flex flex-col items-center justify-center">
-	<SectionFixed img="bg-1.webp">
-		<Section class="min-h-svh min-w-svw flex items-center justify-end">
-			<header class="mx-auto px-4 sm:px-6 lg:px-8">
-				<h1 
-					class="
-						pb-12
-						font-dancing 
-						text-center 
-						text-6xl 
-						text-dusty-rose-500
-						"
-					>
-						Mis XV
-					</h1>
-				</header>
-		</Section>
-	</SectionFixed>
-	<Section class:list={"min-h-screen bg-dusty-rose-400 items-center justify-center gap-24 text-4xl font-dancing px-8"}>
+	<Section class:list={"min-h-svh items-center justify-end min-w-full bg-[url('/bg-1.webp')] bg-fixed bg-cover bg-center bg-no-repeat overflow-hidden"}>
+		<header class="mx-auto px-4 sm:px-6 lg:px-8">
+			<h1 
+				class="
+					pb-12
+					font-dancing 
+					text-center 
+					text-6xl 
+					text-dusty-rose-500
+				"
+			>
+				Mis XV
+			</h1>
+		</header>
+	</Section>
+	<Section class:list={"min-h-svh items-center justify-center bg-dusty-rose-400 gap-18 text-4xl font-dancing px-8"}>
 		<Divider class:list={"z-100 -top-4"}/>
-		<header class="w-full border-b border-b-dusty-rose-600/50">
+		<header class="w-full">
 			<h2>MIS PADRES</h2>
 		</header>
-		<article class="flex flex-col items-center justify-center gap-8">
+		<div class="bg-dusty-rose-700 w-full h-0.5"></div>
+		<article class="flex flex-col items-center justify-center w-full gap-10">
 			<h2>KAREN FLORES LOPEZ</h2>
 			<h2>&</h2>
 			<h2>ALEJANDRO TERRAZAS FLORES</h2>
 		</article>
+		<footer>
+			<!-- agregar una imagen de una mariposa -->
+		</footer>
 		<Divider />
 	</Section>
-	<Section class:list={"min-h-[75svh] justify-center items-center bg-dusty-rose-900 px-8"}>
+	<Section class:list={"min-h-[75svh] items-center justify-center bg-dusty-rose-900 px-8"}>
 		<!-- REPRODUCTOR DE MÚSICA -->
 		<h2 class="text-dusty-rose-400 font-dancing text-4xl pb-8">UN POCO DE MÚSICA</h2>
 		<Reproductor 
@@ -47,34 +55,26 @@ const TIMESTAMP = 1797051600000;
 		/>
 		<Divider />
 	</Section>
-	<Section class:list={"min-h-screen justify-between items-center bg-dusty-rose-400 p-8"}>
+	<Section class:list={"min-h-svh items-center justify-between bg-dusty-rose-400 px-4 py-8 gap-12"}>
 		<!-- CARTA -->
 		<article class="w-full flex justify-center items-center">
 			<div class="relative h-160 sm:h-160 max-h-screen w-full max-w-175">
 				<div
 					class="
 						absolute left-1/2 top-2 md:top-8 z-20
-						h-120 md:h-90  w-[82%]
+						h-120 md:h-90  w-[75%]
 						-translate-x-1/2
 						rounded-sm
-						bg-[#fffdf7]
+						bg-gray-100
 						p-4 md:p-10
 						shadow-xl
 						transition-transform duration-500
 					"
 				>
 					<!-- Texto -->
-					<h2
-						class="
-						mb-6
-						font-serif
-						text-3xl
-						italic
-						text-stone-800
-						"
-					>
+					<H2>
 						Para mis queridos invitados,
-					</h2>
+					</H2>
 					<p
 						class="
 						font-serif
@@ -83,22 +83,9 @@ const TIMESTAMP = 1797051600000;
 						text-stone-600
 						"
 					>
-						Hay palabras que merecen ser escritas con calma,
-						guardadas entre papel y tinta, y entregadas como
-						pequeños recuerdos.
-					</p>
-					<p
-						class="
-						mt-5
-						font-serif
-						text-lg
-						leading-8
-						text-stone-600
-						"
-					>
-						Espero que esta carta encuentre un lugar especial
-						entre tus recuerdos y que cada palabra conserve
-						un poco del momento en que fue escrita.
+						Me haría mucha ilusión que me acompañaras a celebrar mis XV años.
+						Es un momento especial para mi y me encantaría compartirlo con las personas que mas quiero.
+						Tu presencia haría que este día sea aún mas inolvidable.
 					</p>
 				</div>
 				<div
@@ -231,84 +218,110 @@ const TIMESTAMP = 1797051600000;
 			</div>
 		</article>
 		<!-- TIMER  -->
-		<article
+		<section
 			data-date={TIMESTAMP}
-			class="flex flex-col justify-center items-center text-center text-dusty-rose-100 font-bold"
+			class="flex flex-col justify-center items-center text-center text-dusty-rose-100 font-bold gap-8 px-4"
 		>
-			<h2 class="text-xl">SÁBADO, 31 DE DICIEMBRE DEL 2026</h2>
-			<div class="flex gap-4">
+			<h2 class="text-3xl">SÁBADO, 31 DE DICIEMBRE DEL 2026</h2>
+			<h2 class="font-dancing text-3xl text-dusty-rose-700">Tan solo falta</h2>
+			<article class="flex flex-col items-center justify-center uppercase gap-4">
 				<div class="flex flex-col items-center">
-					<span class="text-4xl" data-days>00</span>
-					<span>Dias</span>
+					<span class="text-8xl" data-days>00</span>
+					<span class="text-2xl">Dias</span>
 				</div>
-				<div class="flex flex-col items-center">
-					<span class="text-4xl" data-hours>00</span>
-					<span>Horas</span>
-				</div>
-				<div class="flex flex-col items-center">
-					<span class="text-4xl" data-minutes>00</span>
-					<span>Minutos</span>
-				</div>
-				<div class="flex flex-col items-center">
-					<span class="text-4xl" data-seconds>00</span>
-					<span>Segundos</span>
-				</div>
-			</div>
-		</article>
+				<article class="flex gap-4">
+					<div class="flex flex-col items-center">
+						<span class="text-4xl" data-hours>00</span>
+						<span>Horas</span>
+					</div>
+					<div class="text-4xl">:</div>
+					<div class="flex flex-col items-center">
+						<span class="text-4xl" data-minutes>00</span>
+						<span>Minutos</span>
+					</div>
+					<div class="text-4xl">:</div>
+					<div class="flex flex-col items-center">
+						<span class="text-4xl" data-seconds>00</span>
+						<span>Segundos</span>
+					</div>
+				</article>
+			</article>
+			<h2 class="font-dancing text-3xl text-dusty-rose-700">para este día tan especial</h2>
+		</section>
 		<!-- GALERIA DE FOTOS  -->
-		<Section class:list={"min-h-[90svh] flex flex-col justify-center items-center relative"}>
-			<PictureComponent alt={"Daniela"} src={"/logo-xv-daniela.websp"} class:list={"absolute -translate-y-1/2 -translate-6 z-10 rotate-12"}/>
+		<Section class:list={"min-h-[80svh] flex flex-col justify-center items-center relative"}>
+			<PictureComponent alt={"Daniela"} src={"/logo-xv-daniela.webp"} class:list={"absolute -translate-y-1/2 -translate-6 z-10 rotate-12"}/>
 			<PictureComponent alt={"Daniela"} src={"/logo-xv-daniela.webp"} class:list={"absolute translate-y-1/2 translate-x-2 z-20 -rotate-12"}/>
 		</Section>
+		<Divider />
 	</Section>
-	<Section class:list={"bg-dusty-rose-800"}>
+	<Section class:list={"bg-dusty-rose-800 px-4"}>
 		<!-- MAPA  -->
-		<section class="flex flex-col items-center justify-between relative">
-			<h2 class="text-dusty-rose-600 text-3xl font-dancing pt-4">UBICACIÓN</h2>
-			<article class="flex flex-col items-center py-4">
-				<h3 class="text-dusty-rose-500 text-xl">SALÓN DE EVENTOS "EL CASTILLO"</h3>
-				<p class="pb-4 text-dusty-rose-300">Av. de la Juventud 123, Col. Centro, Ciudad, Estado, CP 12345</p>
-				<iframe 
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
-					width="350"
-					height="350"
-					style="border:0;"
-					allowfullscreen=""
-					loading="lazy"
-					referrerpolicy="strict-origin-when-cross-origin"
-				>
-				</iframe>
-			</article>
-			<article class="flex flex-col items-center py-4">
-				<h3 class="text-dusty-rose-500 text-xl">IGLESIA "SAN JUAN BAUTISTA"</h3>
-				<p class="pb-4 text-dusty-rose-300">Calle Principal 456, Col. Centro, Ciudad, Estado, CP 67890</p>
-				<iframe 
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
-					width="350"
-					height="350"
-					style="border:0;"
-					allowfullscreen=""
-					loading="lazy"
-					referrerpolicy="strict-origin-when-cross-origin"
-				>
-				</iframe>
-			</article>
-			<Divider class:list={"opacity-75"}/>
-		</section>
+		<header class="py-12">
+			<H2>¿ DÓNDE ?</H2>
+			<Paragraph>
+				A continuación encontraras el horario y ubicación de los eventos de mi fiesta,
+				así como un botón directo a Google Maps para facilitar tu llegada a los lugares.
+			</Paragraph>
+		</header>
+		<img src="/divider1.png" alt="divider" class="px-12" />
+		<article class="flex flex-col items-center py-4">
+			<H3>SALÓN DE EVENTOS <br> "EL CASTILLO"</H3>
+			<Paragraph>Av. de la Juventud 123, Col. Centro, Ciudad, Estado, CP 12345</Paragraph>
+			<IconCastle class:list={"text-dusty-rose-400 stroke-1 w-24"}/>
+			<!-- <iframe 
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
+				width="350"
+				height="350"
+				style="border:0;"
+				allowfullscreen=""
+				loading="lazy"
+				referrerpolicy="strict-origin-when-cross-origin"
+			>
+			</iframe> -->
+			<BtnLink link='#'/>
+		</article>
+		<article class="flex flex-col items-center py-4">
+			<H3>IGLESIA METODISTA <br> "TEMPLO EMMANUEL"</H3>
+			<Paragraph>Calle Principal 456, Col. Centro, Ciudad, Estado, CP 67890</Paragraph>
+			<IconChurch class:list={"text-dusty-rose-400 stroke-1 w-24"}/>
+			<!-- <iframe 
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
+				width="350"
+				height="350"
+				style="border:0;"
+				allowfullscreen=""
+				loading="lazy"
+				referrerpolicy="strict-origin-when-cross-origin"
+			>
+			</iframe> -->
+			<BtnLink link={"https://maps.app.goo.gl/VToTSkay7ty2tH2E6"}/>
+		</article>
+		<img src="/divider1.png" alt="divider" class="px-12" />
 		<!-- CÓDIGO DE VESTIMENTA  -->
-		<section class="flex flex-col items-center justify-center relative">
-			<article class="text-center p-12 relative">
-				<h2 class="text-3xl text-dusty-rose-50 font-dancing">CÓDIGO DE VESTIMENTA</h2>
-				<h3 class="text-2xl py-4 text-dusty-rose-100">Formal</h3>
-			</article>
-			<Divider class:list={"opacity-75"}/>
-		 </section>
+		<article class="text-center p-12 relative">
+			<H3>CÓDIGO DE VESTIMENTA</H3>
+			<Paragraph>Formal</Paragraph>
+		</article>
+		<img src="/divider1.png" alt="divider" class="px-12" />
 		<!-- GIFTS  -->
-		<!-- <article></article> -->
+		<article class="px-8 py-12">
+			<H3>REGALOS</H3>
+			<Paragraph>Tu presencia es mi mejor regalo, perosi deseas contribuir con un detalle especial, una lluvia de sobres será muy bien recibido con cariño y gratitud.</Paragraph>
+		</article>
 	</Section>
-	<Section>
-		<!-- CONFIRMAR ASISTENCIA -->
-		<article></article>
+	<Section class:list={"min-h-svh items-center justify-around w-full bg-[url('/bg-1.webp')] bg-cover bg-center bg-no-repeat"}>
+		<article class="flex flex-col items-center justify-center w-full px-8">
+			<a href="#" referrerpolicy="no-referrer" class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4">
+				<IconWhatsapp class:list={"text-dusty-rose-800 w-12"}/>
+				<p class="text-2xl">CONFIRMAR</p>
+			</a>
+		</article>
+		<header class="flex flex-col items-center justify-center w-full px-2 py-8 gap-4">
+			<H3>CONFIRMA TU ASISTENCIA</H3>
+			<p>Quiero compartir este momento tan espacial contigo.</p>
+			<p>Por favor ayudanos a confirmar tu asistencia.</p>
+		</header>
 	</Section>
 </main>
 
