@@ -1,4 +1,9 @@
 ---
+import IconMute from '@/assets/icon-mute.astro';
+import IconPause from '@/assets/icon-pause.astro';
+import IconPlay from '@/assets/icon-play.astro';
+import IconVolume from '@/assets/icon-volume.astro';
+
 interface Props {
   src: string;
   title?: string;
@@ -12,8 +17,8 @@ const {
 
 <div
   data-media-player
-  class="w-full max-w-2xl rounded-2xl border border-slate-100 bg-white p-5 shadow-lg
-         dark:border-dusty-rose-200 dark:bg-dusty-rose-900/50"
+  class="w-full max-w-2xl rounded-2xl border p-5 shadow-lg
+         border-dusty-rose-200 bg-dusty-rose-900/50"
 >
   <!-- Actual audio element -->
   <audio
@@ -29,8 +34,7 @@ const {
     </p> -->
 
     <h2
-      class="mt-1 truncate text-lg font-semibold text-slate-900
-             dark:text-dusty-rose-100"
+      class="mt-1 truncate text-lg font-semibold text-dusty-rose-100"
     >
       {title}
     </h2>
@@ -49,29 +53,12 @@ const {
              hover:bg-dusty-rose-700
              focus:outline-none focus:ring-2 focus:ring-dusty-rose-500
              focus:ring-offset-2
-             dark:focus:ring-offset-slate-900"
+             focus:ring-offset-dusty-rose-900"
     >
       <!-- Play icon -->
-      <svg
-        data-play-icon
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="size-6"
-        aria-hidden="true"
-      >
-        <path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.28-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14Z" />
-      </svg>
-
+      <IconPlay class:list={"size-6"}/>
       <!-- Pause icon -->
-      <svg
-        data-pause-icon
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="hidden size-6"
-        aria-hidden="true"
-      >
-        <path d="M7 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V5Zm6 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V5Z" />
-      </svg>
+      <IconPause class:list={"hidden size-6"}/>
     </button>
 
     <!-- Progress -->
@@ -95,8 +82,7 @@ const {
 
       <!-- Time -->
       <div
-        class="mt-1 flex justify-between text-xs tabular-nums
-               text-slate-500 dark:text-slate-400"
+        class="mt-1 flex justify-between text-xs tabular-nums text-dusty-rose-400"
       >
         <span data-current-time>0:00</span>
         <!-- <span data-duration>0:00</span> -->
@@ -106,52 +92,22 @@ const {
 
   <!-- Volume -->
   <div
-    class="mt-5 flex items-center justify-end gap-3
-           border-t border-slate-100 pt-4
-           dark:border-slate-800"
+    class="mt-5 flex items-center justify-end gap-3 border-t pt-4 border-dusty-rose-100"
   >
     <button
       data-mute
       type="button"
       aria-label="Mute audio"
-      class="rounded-lg p-2 text-slate-500 transition
-             hover:bg-slate-100 hover:text-slate-900
-             dark:text-slate-400
-             dark:hover:bg-slate-800 dark:hover:text-white"
+      class="rounded-lg p-2 transition
+             text-dusty-rose-400
+             hover:bg-dusty-rose-800 hover:text-white"
     >
       <!-- Volume icon -->
-      <svg
-        data-volume-icon
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        class="size-5"
-        aria-hidden="true"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M11 5 6 9H3v6h3l5 4V5Zm4.5 3.5a5 5 0 0 1 0 7M18 6a8 8 0 0 1 0 12"
-        />
-      </svg>
+      <IconVolume class:list={"text-dusty-rose-400 size-5"}/>
 
       <!-- Muted icon -->
-      <svg
-        data-muted-icon
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        class="hidden size-5"
-        aria-hidden="true"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M11 5 6 9H3v6h3l5 4V5Zm4 5 5 5m0-5-5 5"
-        />
-      </svg>
+      <IconMute class:list={"text-dusty-rose-400 size-5 hidden"}/>
+
     </button>
 
     <label class="sr-only" for="audio-volume">
@@ -172,8 +128,7 @@ const {
 
     <span
       data-volume-value
-      class="w-9 text-right text-xs tabular-nums text-slate-500
-             dark:text-slate-400"
+      class="w-9 text-right text-xs tabular-nums text-dusty-rose-400"
     >
       80%
     </span>

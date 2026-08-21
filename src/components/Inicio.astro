@@ -10,27 +10,24 @@ import Paragraph from '@/assets/Paragraph.astro'
 import IconChurch from '@/assets/icon-church.astro';
 import IconCastle from '@/assets/icon-castle.astro';
 import IconWhatsapp from '@/assets/icon-whatsapp.astro';
+import IconButterfly from '@/assets/icon-butterfly.astro';
 
 const TIMESTAMP = 1797051600000;
 ---
 
 <main class="flex flex-col items-center justify-center">
+	<!-- MAIN -->
 	<Section class:list={"min-h-svh items-center justify-end min-w-full bg-[url('/bg-1.webp')] bg-fixed bg-cover bg-center bg-no-repeat overflow-hidden"}>
-		<header class="mx-auto px-4 sm:px-6 lg:px-8">
-			<h1 
-				class="
-					pb-12
-					font-dancing 
-					text-center 
-					text-6xl 
-					text-dusty-rose-500
-				"
-			>
+		<header class="flex items-center justify-evenly mb-12 w-full">
+			<div class="h-0.5 bg-dusty-rose-500 w-24"></div>
+			<h1 class="font-dancing text-center text-6xl text-dusty-rose-500">
 				Mis XV
 			</h1>
+			<div class="h-0.5 bg-dusty-rose-500 w-24"></div>
 		</header>
 	</Section>
-	<Section class:list={"min-h-svh items-center justify-center bg-dusty-rose-400 gap-18 text-4xl font-dancing px-8"}>
+	<!-- PARENTS -->
+	<Section class:list={"min-h-svh items-center justify-center text-dusty-rose-800 bg-dusty-rose-400 gap-18 text-4xl font-dancing px-8"}>
 		<Divider class:list={"z-100 -top-4"}/>
 		<header class="w-full">
 			<h2>MIS PADRES</h2>
@@ -41,13 +38,14 @@ const TIMESTAMP = 1797051600000;
 			<h2>&</h2>
 			<h2>ALEJANDRO TERRAZAS FLORES</h2>
 		</article>
+		<div class="bg-dusty-rose-700 w-full h-0.5"></div>
 		<footer>
-			<!-- agregar una imagen de una mariposa -->
+			<IconButterfly class:list={"text-dusty-rose-700 w-24"}/>
 		</footer>
 		<Divider />
 	</Section>
-	<Section class:list={"min-h-[75svh] items-center justify-center bg-dusty-rose-900 px-8"}>
-		<!-- REPRODUCTOR DE MÚSICA -->
+	<!-- REPRODUCTOR DE MÚSICA -->
+	<Section class:list={"min-h-[75svh] items-center justify-center bg-dusty-rose-800 px-8"}>
 		<h2 class="text-dusty-rose-400 font-dancing text-4xl pb-8">UN POCO DE MÚSICA</h2>
 		<Reproductor 
 			src="/Calvin Harris - Blame (Audio) ft. John Newman.mp3"
@@ -55,6 +53,7 @@ const TIMESTAMP = 1797051600000;
 		/>
 		<Divider />
 	</Section>
+	<!-- CARTA | TIMER | GALERIA -->
 	<Section class:list={"min-h-svh items-center justify-between bg-dusty-rose-400 px-4 py-8 gap-12"}>
 		<!-- CARTA -->
 		<article class="w-full flex justify-center items-center">
@@ -255,6 +254,7 @@ const TIMESTAMP = 1797051600000;
 		</Section>
 		<Divider />
 	</Section>
+	<!-- UBICACION IGLESIA Y SALON -->
 	<Section class:list={"bg-dusty-rose-800 px-4"}>
 		<!-- MAPA  -->
 		<header class="py-12">
@@ -310,6 +310,7 @@ const TIMESTAMP = 1797051600000;
 			<Paragraph>Tu presencia es mi mejor regalo, perosi deseas contribuir con un detalle especial, una lluvia de sobres será muy bien recibido con cariño y gratitud.</Paragraph>
 		</article>
 	</Section>
+	<!-- CONFIRMAR ASISTENCIA -->
 	<Section class:list={"min-h-svh items-center justify-around w-full bg-[url('/bg-1.webp')] bg-cover bg-center bg-no-repeat"}>
 		<article class="flex flex-col items-center justify-center w-full px-8">
 			<a href="#" referrerpolicy="no-referrer" class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4">
