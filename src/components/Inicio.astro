@@ -11,6 +11,9 @@ import IconChurch from '@/assets/icon-church.astro';
 import IconCastle from '@/assets/icon-castle.astro';
 import IconWhatsapp from '@/assets/icon-whatsapp.astro';
 import IconButterfly from '@/assets/icon-butterfly.astro';
+import IconDress from '@/assets/icon-dress.astro';
+import IconTie from '@/assets/icon-tie.astro';
+import IconGift from '@/assets/icon-gift.astro';
 
 const TIMESTAMP = 1797051600000;
 ---
@@ -299,15 +302,20 @@ const TIMESTAMP = 1797051600000;
 		</article>
 		<img src="/divider1.png" alt="divider" class="px-12" />
 		<!-- CÓDIGO DE VESTIMENTA  -->
-		<article class="text-center p-12 relative">
+		<article class="flex flex-col gap-8 items-center justify-center text-center p-12 relative">
 			<H3>CÓDIGO DE VESTIMENTA</H3>
-			<Paragraph>Formal</Paragraph>
+			<div class="flex items-center justify-center">
+				<IconDress class:list={"w-24 text-dusty-rose-500"} />
+				<Paragraph>Formal</Paragraph>
+				<IconTie class:list={"w-24 text-dusty-rose-500"}/>
+			</div>
 		</article>
 		<img src="/divider1.png" alt="divider" class="px-12" />
 		<!-- GIFTS  -->
-		<article class="px-8 py-12">
+		<article class="px-8 py-12 flex flex-col items-center justify-center">
 			<H3>REGALOS</H3>
 			<Paragraph>Tu presencia es mi mejor regalo, perosi deseas contribuir con un detalle especial, una lluvia de sobres será muy bien recibido con cariño y gratitud.</Paragraph>
+			<IconGift class:list={"w-24 text-dusty-rose-500"}/>
 		</article>
 	</Section>
 	<!-- CONFIRMAR ASISTENCIA -->
