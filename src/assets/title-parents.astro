@@ -1,0 +1,12 @@
+---
+interface Props{
+    class?: string;
+    text: string;
+}
+
+const { text } = Astro.props
+---
+
+<h2 class:list={["capitalize first-letter:text-4xl first-letter:text-dusty-rose-200 font-dancing"]}>
+    { text }
+</h2>

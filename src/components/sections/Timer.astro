@@ -1,0 +1,34 @@
+---
+interface Props{
+    TIMESTAMP: Number;
+}
+
+const { TIMESTAMP } = Astro.props
+---
+<section data-date={TIMESTAMP} class="flex flex-col justify-center items-center text-center text-dusty-rose-100 font-bold gap-8 px-4">
+    <h2 class="text-3xl">SÁBADO, 26 DE DICIEMBRE DEL 2026</h2>
+    <h2 class="font-dancing text-3xl text-dusty-rose-700">Tan solo falta</h2>
+    <article class="flex flex-col items-center justify-center uppercase gap-4">
+        <div class="flex flex-col items-center">
+            <span class="text-8xl" data-days>00</span>
+            <span class="text-2xl">Dias</span>
+        </div>
+        <article class="flex gap-4">
+            <div class="flex flex-col items-center">
+                <span class="text-4xl" data-hours>00</span>
+                <span>Horas</span>
+            </div>
+            <div class="text-4xl">:</div>
+            <div class="flex flex-col items-center">
+                <span class="text-4xl" data-minutes>00</span>
+                <span>Minutos</span>
+            </div>
+            <div class="text-4xl">:</div>
+            <div class="flex flex-col items-center">
+                <span class="text-4xl" data-seconds>00</span>
+                <span>Segundos</span>
+            </div>
+        </article>
+    </article>
+    <h2 class="font-dancing text-3xl text-dusty-rose-700">para este día tan especial</h2>
+</section>

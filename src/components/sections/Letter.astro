@@ -1,0 +1,86 @@
+---
+import H2 from '@/assets/h2-title.astro'
+---
+<article class="w-full flex justify-center items-center">
+    <div class="relative h-160 sm:h-160 max-h-screen w-full max-w-175">
+        <div class=" absolute left-1/2 top-2 md:top-8 z-20 h-120 md:h-90  w-[75%] -translate-x-1/2 rounded-sm bg-gray-100 p-4 md:p-10 shadow-xl transition-transform duration-500">
+            <!-- Texto -->
+            <H2>Para mis queridos invitados,</H2>
+            <p class=" font-serif text-lg leading-8 text-stone-600">
+                Me haría mucha ilusión que me acompañaras a celebrar mis XV años.
+                Es un momento especial para mi y me encantaría compartirlo con las personas que mas quiero.
+                Tu presencia haría que este día sea aún mas inolvidable.
+            </p>
+        </div>
+        <div class="absolute bottom-50 sm:bottom-64 left-1/2 z-10 h-34 sm:h-70 w-[90%] -translate-x-1/2 origin-bottom bg-[#ded2bd] shadow-md [clip-path:polygon(0_100%,50%_0,100%_100%)] sm:[clip-path:polygon(0_100%,50%_0,100%_100%)]">
+            <!-- Interior de la solapa -->
+            <div
+                class="
+                absolute inset-1.5
+                bg-[#795731]
+                [clip-path:polygon(0_100%,50%_0,100%_100%)]
+                sm:[clip-path:polygon(0_100%,50%_0,100%_100%)]
+                "
+            >
+            </div>
+        </div>
+        <div
+            class="
+                absolute
+                bottom-0
+                left-1/2
+                z-30
+                h-52
+                sm:h-66
+                w-[90%]
+                -translate-x-1/2
+                overflow-hidden
+                rounded-b-md
+                bg-[#d6c6aa]
+                shadow-2xl
+            "
+        >
+            <!-- Pliegue izquierdo -->
+            <div class="absolute inset-0 bg-[#e3d7c2] [clip-path:polygon(0_0,55%_50%,0_100%)]"></div>
+            <!-- Pliegue derecho -->
+            <div class="absolute inset-0 bg-[#d8cab1] [clip-path:polygon(100%_0,45%_50%,100%_100%)]"></div>
+            <!-- Pliegue inferior -->
+            <div class="absolute inset-0 bg-[#eadfca] [clip-path:polygon(0_100%,50%_42%,100%_100%)]"></div>
+            <!-- BROCHE -->
+            <div class="absolute bottom-22 sm:bottom-28 left-1/2 z-40 -translate-x-1/2">
+                <!-- Broche exterior -->
+                <div
+                    class="
+                        relative
+                        flex h-14 w-14
+                        items-center justify-center
+                        rounded-full
+                        border-[3px]
+                        border-[#92734c]
+                        bg-linear-to-br
+                        from-[#d9bd83]
+                        via-[#b58c55]
+                        to-[#795731]
+                        shadow-lg
+                    "
+                >
+                    <!-- Círculo interior -->
+                    <div
+                        class="
+                        flex h-10 w-10
+                        items-center justify-center
+                        rounded-full
+                        border
+                        border-[#ead6a8]/60
+                        bg-[#a77b46]
+                        shadow-inner
+                        "
+                    >
+                        <!-- Inicial -->
+                        <span class="font-dancing text-xl font-bold italic text-[#f2dfb8]">D</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

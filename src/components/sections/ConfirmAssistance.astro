@@ -1,0 +1,19 @@
+---
+import Section from '@/components/Section.astro';
+
+import H3 from '@/assets/h3-title.astro';
+import IconWhatsapp from '@/assets/icon-whatsapp.astro';
+---
+<Section class:list={"min-h-svh items-center justify-around w-full bg-[url('/bg-1.webp')] bg-cover bg-center bg-no-repeat"}>
+    <article class="flex flex-col items-center justify-center w-full px-8">
+        <a href="#" referrerpolicy="no-referrer" class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4">
+            <IconWhatsapp class:list={"text-dusty-rose-800 w-12"}/>
+            <p class="text-2xl">CONFIRMAR</p>
+        </a>
+    </article>
+    <header class="flex flex-col items-center justify-center w-full px-2 py-8 gap-4">
+        <H3>CONFIRMA TU ASISTENCIA</H3>
+        <p>Quiero compartir este momento tan espacial contigo.</p>
+        <p>Por favor ayudanos a confirmar tu asistencia.</p>
+    </header>
+</Section>
