@@ -15,11 +15,8 @@ import LocationAndDressCode from '@/components/sections/LocationAndDressCode.ast
 const TIMESTAMP = 1798300800000;
 ---
 
-<main class="flex flex-col items-center justify-center">
-	<ReproductorV2 
-		src="/Lana Del Rey - Once Upon A Dream.mp3"
-        title="Lana Del Rey - Once Upon A Dream"
-	/>
+<main class="flex flex-col items-center justify-center relative">
+	
 	<Hero />
 	<Parents />
 	<!-- <MusicPlayer /> -->
@@ -32,6 +29,10 @@ const TIMESTAMP = 1798300800000;
 	</Section>
 	<LocationAndDressCode />
 	<ConfirmAssistance />
+	<ReproductorV2 
+		src="/Lana Del Rey - Once Upon A Dream.mp3"
+		title="Lana Del Rey - Once Upon A Dream"
+	/>
 </main>
 
 <script>
