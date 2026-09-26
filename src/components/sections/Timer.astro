@@ -5,30 +5,29 @@ interface Props{
 
 const { TIMESTAMP } = Astro.props
 ---
-<section data-date={TIMESTAMP} class="flex flex-col justify-center items-center text-center text-dusty-rose-100 font-bold gap-8 px-4">
-    <h2 class="text-3xl">SÁBADO, 26 DE DICIEMBRE DEL 2026</h2>
-    <h2 class="font-dancing text-3xl text-dusty-rose-700">Tan solo falta</h2>
-    <article class="flex flex-col items-center justify-center uppercase gap-4">
-        <div class="flex flex-col items-center">
-            <span class="text-8xl" data-days>00</span>
-            <span class="text-2xl">Dias</span>
+<section data-date={TIMESTAMP} class="flex flex-col justify-center items-center text-center text-dusty-rose-100 font-bold gap-8 p-4 shadow rounded-2xl mx-4 bg-dusty-rose-500/10">
+    <h2 class="text-2xl">SÁBADO, 26 DE DICIEMBRE DEL 2026</h2>
+    <h2 class="font-dancing text-2xl text-dusty-rose-100">Tan solo falta</h2>
+    <article class="flex items-center gap-4">
+        <div class="flex flex-col items-center rounded-2xl p-4 shadow-lg">
+            <span class="text-4xl" data-days>00</span>
+            <span >Dias</span>
         </div>
-        <article class="flex gap-4">
-            <div class="flex flex-col items-center">
-                <span class="text-4xl" data-hours>00</span>
-                <span>Horas</span>
-            </div>
-            <div class="text-4xl">:</div>
-            <div class="flex flex-col items-center">
-                <span class="text-4xl" data-minutes>00</span>
-                <span>Minutos</span>
-            </div>
-            <div class="text-4xl">:</div>
-            <div class="flex flex-col items-center">
-                <span class="text-4xl" data-seconds>00</span>
-                <span>Segundos</span>
-            </div>
-        </article>
+        <!-- <div class="text-4xl">:</div> -->
+        <div class="flex flex-col items-center rounded-2xl p-4 shadow-lg">
+            <span class="text-4xl" data-hours>00</span>
+            <span>Horas</span>
+        </div>
+        <!-- <div class="text-4xl">:</div> -->
+        <div class="flex flex-col items-center rounded-2xl p-4 shadow-lg">
+            <span class="text-4xl" data-minutes>00</span>
+            <span>Minutos</span>
+        </div>
+        <!-- <div class="text-4xl">:</div> -->
+        <div class="flex flex-col items-center rounded-2xl p-4 shadow-lg">
+            <span class="text-4xl" data-seconds>00</span>
+            <span>Segundos</span>
+        </div>
     </article>
-    <h2 class="font-dancing text-3xl text-dusty-rose-700">para este día tan especial</h2>
+    <h2 class="font-dancing text-2xl text-dusty-rose-100">para este día tan especial</h2>
 </section>
