@@ -148,8 +148,7 @@ const {
   }
 
   function initializePlayers() {
-    const players =
-      document.querySelectorAll<HTMLElement>("[data-media-player]");
+    const players = document.querySelectorAll<HTMLElement>("[data-media-player]");
 
     players.forEach((player) => {
       // Prevent the same player from being initialized twice
@@ -159,42 +158,18 @@ const {
 
       player.dataset.initialized = "true";
 
-      const audio =
-        player.querySelector<HTMLAudioElement>("[data-audio]");
-
-      const playButton =
-        player.querySelector<HTMLButtonElement>("[data-play]");
-
-      const playIcon =
-        player.querySelector<SVGElement>("[data-play-icon]");
-
-      const pauseIcon =
-        player.querySelector<SVGElement>("[data-pause-icon]");
-
-      const progress =
-        player.querySelector<HTMLInputElement>("[data-progress]");
-
-      const currentTime =
-        player.querySelector<HTMLElement>("[data-current-time]");
-
-      const duration =
-        player.querySelector<HTMLElement>("[data-duration]");
-
-      const volume =
-        player.querySelector<HTMLInputElement>("[data-volume]");
-
-      const volumeValue =
-        player.querySelector<HTMLElement>("[data-volume-value]");
-
-      const muteButton =
-        player.querySelector<HTMLButtonElement>("[data-mute]");
-
-      const volumeIcon =
-        player.querySelector<SVGElement>("[data-volume-icon]");
-
-      const mutedIcon =
-        player.querySelector<SVGElement>("[data-muted-icon]");
-
+      const audio = player.querySelector<HTMLAudioElement>("[data-audio]");
+      const playButton = player.querySelector<HTMLButtonElement>("[data-play]");
+      const playIcon = player.querySelector<SVGElement>("[data-play-icon]");
+      const pauseIcon = player.querySelector<SVGElement>("[data-pause-icon]");
+      const progress = player.querySelector<HTMLInputElement>("[data-progress]");
+      const currentTime = player.querySelector<HTMLElement>("[data-current-time]");
+      const duration = player.querySelector<HTMLElement>("[data-duration]");
+      const volume = player.querySelector<HTMLInputElement>("[data-volume]");
+      const volumeValue = player.querySelector<HTMLElement>("[data-volume-value]");
+      const muteButton = player.querySelector<HTMLButtonElement>("[data-mute]");
+      const volumeIcon = player.querySelector<SVGElement>("[data-volume-icon]");
+      const mutedIcon = player.querySelector<SVGElement>("[data-muted-icon]");
       if (
         !audio ||
         !playButton ||
