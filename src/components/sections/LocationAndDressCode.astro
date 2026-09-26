@@ -10,57 +10,54 @@ import IconChurch from '@/assets/icon-church.astro';
 import IconDress from '@/assets/icon-dress.astro';
 import IconTie from '@/assets/icon-tie.astro';
 import IconGift from '@/assets/icon-gift.astro';
+import IconLetter from '@/assets/icon-letter.astro';
 ---
 <Section class:list={"bg-dusty-rose-800 px-4"}>
-<!-- MAPA  -->
-<header class="py-12">
-    <H2>¿ DÓNDE ?</H2>
-    <Paragraph>
-        A continuación encontraras el horario y ubicación de los eventos de mi fiesta,
-        así como un botón directo a Google Maps para facilitar tu llegada a los lugares.
-    </Paragraph>
-</header>
-<img src="/divider1.png" alt="divider" class="px-12" />
-<article class="flex flex-col items-center py-4">
-    <H3>SALÓN DE EVENTOS <br> "EL CASTILLO"</H3>
-    <Paragraph>Av. de la Juventud 123, Col. Centro, Ciudad, Estado, CP 12345</Paragraph>
-    <IconCastle class:list={"text-dusty-rose-400 stroke-1 w-24"}/>
-    <BtnLink link='#'/>
-</article>
-<article class="flex flex-col items-center py-4">
-    <H3>IGLESIA METODISTA <br> "TEMPLO EMMANUEL"</H3>
-    <Paragraph>Calle 5 Nte. 202, Centro histórico de Puebla, 72000 Heroica Puebla de Zaragoza, Pue.</Paragraph>
-    <IconChurch class:list={"text-dusty-rose-400 stroke-1 w-24"}/>
-    <!-- <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.8250494733261!2d-98.20129788532378!3d19.047031649102145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1786343960597!5m2!1ses-419!2smx"
-        width="350"
-        height="350"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-    >
-    </iframe> -->
-    <BtnLink link={"https://maps.app.goo.gl/VToTSkay7ty2tH2E6"}/>
-</article>
-<img src="/divider1.png" alt="divider" class="px-12" />
-<!-- CÓDIGO DE VESTIMENTA  -->
-<article class="flex flex-col gap-8 items-center justify-center text-center p-12 relative">
-    <H3>CÓDIGO DE VESTIMENTA</H3>
-    <body class="flex items-center justify-center">
-        <H2>Formal</H2>
-    </body>
-    <footer class="flex gap-4">
-        <IconDress class:list={"w-12 text-dusty-rose-500"} />
-        <IconTie class:list={"w-12 text-dusty-rose-500"}/>
-    </footer>
-    <h6 class="text-dusty-rose-300 bg-dusty-rose-700/50 px-4 py-4 rounded-xl">EL COLOR ROSA ES EXCLUSIVO DE LA QUINCEAÑERA, ¡GRACIAS!</h6>
-</article>
-<img src="/divider1.png" alt="divider" class="px-12" />
-<!-- GIFTS  -->
-<article class="px-8 py-12 flex flex-col items-center justify-center">
-    <H3>REGALOS</H3>
-    <Paragraph>Tu presencia es mi mejor regalo, perosi deseas contribuir con un detalle especial, una lluvia de sobres será muy bien recibido con cariño y gratitud.</Paragraph>
-    <IconGift class:list={"w-24 text-dusty-rose-500"}/>
-</article>
+    <!-- MAPA  -->
+    <header class="py-12">
+        <H2>¿ DÓNDE Y CUÁNDO ?</H2>
+        <Paragraph>
+            A continuación encontraras el horario y ubicación de los eventos de mi fiesta,
+            así como un botón directo a Google Maps para facilitar tu llegada a los lugares.
+        </Paragraph>
+    </header>
+    <img src="/divider1.png" alt="divider" class="px-12" />
+    <article class="flex flex-col items-center py-4">
+        <H3>IGLESIA METODISTA <br>"TEMPLO EMMANUEL"</H3>
+        <Paragraph>Calle 5 Nte. 202, Centro histórico de Puebla, 72000 Heroica Puebla de Zaragoza, Pue.</Paragraph>
+        <h4 class="text-dusty-rose-300 bg-dusty-rose-700/50 px-4 py-4 rounded-xl">INICIO DE CEREMONIA 15:00 HRS</h4>
+        <IconChurch class:list={"text-dusty-rose-400 stroke-1 w-24"}/>
+        <BtnLink link={"https://maps.app.goo.gl/VToTSkay7ty2tH2E6"}/>
+    </article>
+    <article class="flex flex-col items-center py-4">
+        <H3>RECEPCIONES <br>"CRYSTAL"</H3>
+        <Paragraph>Calle Lázaro Cárdenas 21, San Miguel Xonacatepec, 72229 Santa María Xonacatepec, Pue.</Paragraph>
+        <h4 class="text-dusty-rose-300 bg-dusty-rose-700/50 px-4 py-4 rounded-xl">RECEPCIÓN 17:00 HRS</h4>
+        <IconCastle class:list={"text-dusty-rose-400 stroke-1 w-24"}/>
+        <BtnLink link='https://maps.app.goo.gl/nnrqctAmVTDgJyFQ7'/>
+    </article>
+    <img src="/divider1.png" alt="divider" class="px-12" />
+    <!-- CÓDIGO DE VESTIMENTA  -->
+    <article class="flex flex-col gap-8 items-center justify-center text-center p-12 relative">
+        <H3>CÓDIGO DE VESTIMENTA</H3>
+        <body class="flex items-center justify-center">
+            <H2>Formal</H2>
+        </body>
+        <footer class="flex items-center justify-evenly gap-4 w-full">
+            <IconDress class:list={"w-20 text-dusty-rose-500"} />
+            <IconTie class:list={"w-20 text-dusty-rose-500"}/>
+        </footer>
+        <h6 class="text-dusty-rose-300 bg-dusty-rose-700/50 px-4 py-4 rounded-xl">EL COLOR ROSA ES EXCLUSIVO DE LA QUINCEAÑERA, ¡GRACIAS!</h6>
+    </article>
+    <img src="/divider1.png" alt="divider" class="px-12" />
+    <!-- GIFTS  -->
+    <article class="px-8 py-12 flex flex-col items-center justify-center">
+        <H3>REGALOS</H3>
+        <Paragraph>Tu presencia es mi mejor regalo, pero si deseas hacerme un detalle, lo agradeceré de corazón.</Paragraph>
+        <div class="flex items-center justify-evenly w-full">
+            <IconGift class:list={"w-24 text-dusty-rose-500"}/>
+            <IconLetter class:list={"w-24 text-dusty-rose-500"}/>
+        </div>
+        <Paragraph>TAMBIÉN TENDRÉ LLUVIA DE SOBRES EN EL EVENTO.</Paragraph>
+    </article>
 </Section>
