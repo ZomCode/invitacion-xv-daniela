@@ -8,16 +8,21 @@ import MusicPlayer from '@/components/sections/MusicPlayer.astro';
 import Letter from '@/components/sections/Letter.astro'
 import Timer from '@/components/sections/Timer.astro'
 import Gallery from '@/components/sections/Gallery.astro'
-import LocationAndDressCode from '@/components/sections/LocationAndDressCode.astro'
+import ReproductorV2 from '@/components/ReproductorV2.astro';
 import ConfirmAssistance from '@/components/sections/ConfirmAssistance.astro'
+import LocationAndDressCode from '@/components/sections/LocationAndDressCode.astro'
 
 const TIMESTAMP = 1798300800000;
 ---
 
 <main class="flex flex-col items-center justify-center">
+	<ReproductorV2 
+		src="/Lana Del Rey - Once Upon A Dream.mp3"
+        title="Lana Del Rey - Once Upon A Dream"
+	/>
 	<Hero />
 	<Parents />
-	<MusicPlayer />
+	<!-- <MusicPlayer /> -->
 	<!-- CARTA | TIMER | GALERIA -->
 	<Section class:list={"min-h-svh items-center justify-between bg-dusty-rose-400 px-4 py-8 gap-12"}>
 		<Letter />
