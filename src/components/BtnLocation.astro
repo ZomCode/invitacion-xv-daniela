@@ -1,24 +1,18 @@
 ---
+import IconLocation from '@/assets/icon-location.astro'
+
 interface Props {
     link?: string;
 }
 
 const link = Astro.props.link
 ---
-
-<!-- <a 
-    href={link} 
-    target="_blank" 
-    referrerpolicy="no-referrer"
-    class="text-dusty-rose-200 font-bold bg-dusty-rose-300/25 backdrop-blur-md px-4 py-2 rounded-full m-4" 
->
-    VER UBICACIÓN
-</a> -->
 <a 
-    href={link} 
+    href={ link } 
     target="_blank" 
     referrerpolicy="no-referrer"
-    class="text-dusty-rose-200 font-bold bg-dusty-rose-600 border-2 border-dusty-rose-800 px-4 py-2 rounded-full m-4" 
+    class="flex items-center justify-center gap-2 w-full text-golden font-bold hover:bg-dusty-rose-500 active:bg-dusty-rose-500 bg-dusty-rose-600 border-2 border-dusty-rose-800 px-4 py-2 rounded-full m-4" 
 >
-    VER UBICACIÓN
+    <IconLocation class:list={"w-4 text-golden"}/>
+    VER UBICACIÓN EN GOOGLE MAPS
 </a>
