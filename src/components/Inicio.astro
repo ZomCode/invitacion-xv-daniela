@@ -4,11 +4,10 @@ import Hero from '@/components/sections/Hero.astro';
 import Section from '@/components/Section.astro';
 import Divider from '@/components/Divider.astro';
 import Parents from '@/components/sections/Parents.astro';
-import MusicPlayer from '@/components/sections/MusicPlayer.astro';
 import Letter from '@/components/sections/Letter.astro'
 import Timer from '@/components/sections/Timer.astro'
 import Gallery from '@/components/sections/Gallery.astro'
-import ReproductorV2 from '@/components/ReproductorV2.astro';
+import Reproductor from '@/components/ReproductorV2.astro';
 import ConfirmAssistance from '@/components/sections/ConfirmAssistance.astro'
 import LocationAndDressCode from '@/components/sections/LocationAndDressCode.astro'
 
@@ -16,11 +15,9 @@ const TIMESTAMP = 1798300800000;
 ---
 
 <main class="flex flex-col items-center justify-center relative">
-	
+	<div class="fixed inset-x-0 top-0 -z-50 h-screen w-full bg-[url('/dani3.jpeg')] bg-cover bg-center bg-no-repeat "></div>
 	<Hero />
 	<Parents />
-	<!-- <MusicPlayer /> -->
-	<!-- CARTA | TIMER | GALERIA -->
 	<Section class:list={"min-h-svh items-center justify-between bg-dusty-rose-400 px-4 py-8 gap-12"}>
 		<Letter />
 		<Timer TIMESTAMP={ TIMESTAMP } />
@@ -29,7 +26,7 @@ const TIMESTAMP = 1798300800000;
 	</Section>
 	<LocationAndDressCode />
 	<ConfirmAssistance />
-	<ReproductorV2 
+	<Reproductor 
 		src="/Lana Del Rey - Once Upon A Dream.mp3"
 		title="Lana Del Rey - Once Upon A Dream"
 	/>
