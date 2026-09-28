@@ -1,7 +1,6 @@
 ---
 import Section from '@/components/Section.astro';
 import BtnLink from '@/components/BtnLocation.astro';
-
 import H2 from '@/assets/h2-title.astro';
 import H3 from '@/assets/h3-title.astro';
 import Paragraph from '@/assets/Paragraph.astro';
@@ -11,18 +10,66 @@ import IconDress from '@/assets/icon-dress.astro';
 import IconTie from '@/assets/icon-tie.astro';
 import IconGift from '@/assets/icon-gift.astro';
 import IconLetter from '@/assets/icon-letter.astro';
+
+import CardInfoLocations from '@/components/CardInfoLocations.astro';
 ---
 <Section class:list={"bg-dusty-rose-800 px-4"}>
     <!-- MAPA  -->
-    <header class="py-12">
+    <header class="pt-12">
         <H2>¿ DÓNDE Y CUÁNDO ?</H2>
         <Paragraph>
             A continuación encontraras el horario y ubicación de los eventos de mi fiesta,
             así como un botón directo a Google Maps para facilitar tu llegada a los lugares.
         </Paragraph>
     </header>
-    <img src="/divider1.png" alt="divider" class="px-12" />
-    <article class="flex flex-col items-center py-4">
+    <img src="/divider1.png" alt="divider" class="px-12 my-8" />
+    <CardInfoLocations 
+        img='/iglesia_emmanuel.webp' 
+        alt='Fotografia de Iglesia Metodista - Templo Emmanuel'
+        toolTip='CEREMONIA RELIGIOSA' 
+        title='IGLESIA METODISTA - EMMANUEL'
+        address='Calle 5 Nte. 202, Centro histórico de Puebla, 72000 Heroica Puebla de Zaragoza, Pue.'
+        link='https://maps.app.goo.gl/VToTSkay7ty2tH2E6'
+        msg='INICIO CEREMONIA'
+        hour='3:00 PM' 
+
+    >
+        <iframe 
+                slot="frame-place"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d942.845778292646!2d-98.2014807!3d19.0468861!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0dddc0419a3%3A0xb7f90728d223a4bb!2sIglesia%20Metodista%20de%20M%C3%A9xico%2C%20Templo%20Emmanuel!5e0!3m2!1ses-419!2smx!4v1790585575514!5m2!1ses-419!2smx"
+                class="rounded-2xl w-full" 
+                style="border:0;"
+                height="300"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer"
+            >
+        </iframe>
+    </CardInfoLocations>
+    <CardInfoLocations 
+        img='/salon_crystal.webp' 
+        alt='Fotografia del Salon de eventos - Recepciones Cristal'
+        toolTip='SALÓN DE EVENTOS' 
+        title='SALÓN DE EVENTOS - RECEPCIONES CIRSTAL'
+        address='Calle Lázaro Cárdenas 21, San Miguel Xonacatepec, 72229 Santa María Xonacatepec, Pue.'
+        link='https://maps.app.goo.gl/nnrqctAmVTDgJyFQ7'
+        msg='HORA DE RECEPCIÓN'
+        hour='5:00 PM' 
+
+    >
+        <iframe 
+            slot="frame-place"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1885.340393384079!2d-98.1137513!3d19.0777675!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfea6a84899c6b%3A0x1f15d01d4d6b0d51!2sRecepciones%20Cristal!5e0!3m2!1ses-419!2smx!4v1790588804475!5m2!1ses-419!2smx" 
+            class="rounded-2xl w-full" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer"
+        >
+        </iframe>
+    </CardInfoLocations>
+    <!-- <article class="flex flex-col items-center py-4">
         <H3>IGLESIA METODISTA <br>"TEMPLO EMMANUEL"</H3>
         <Paragraph>Calle 5 Nte. 202, Centro histórico de Puebla, 72000 Heroica Puebla de Zaragoza, Pue.</Paragraph>
         <h4 class="text-dusty-rose-300 bg-dusty-rose-700/50 px-4 py-4 rounded-xl">INICIO DE CEREMONIA 15:00 HRS</h4>
@@ -35,19 +82,22 @@ import IconLetter from '@/assets/icon-letter.astro';
         <h4 class="text-dusty-rose-300 bg-dusty-rose-700/50 px-4 py-4 rounded-xl">RECEPCIÓN 17:00 HRS</h4>
         <IconCastle class:list={"text-dusty-rose-400 stroke-1 w-24"}/>
         <BtnLink link='https://maps.app.goo.gl/nnrqctAmVTDgJyFQ7'/>
-    </article>
-    <img src="/divider1.png" alt="divider" class="px-12" />
+    </article> -->
+    <img src="/divider1.png" alt="divider" class="px-12 my-8" />
     <!-- CÓDIGO DE VESTIMENTA  -->
     <article class="flex flex-col gap-8 items-center justify-center text-center p-12 relative">
         <H3>CÓDIGO DE VESTIMENTA</H3>
         <body class="flex items-center justify-center">
-            <H2>Formal</H2>
+            <h4 class="text-dusty-rose-200 text-4xl font-bold">Formal</h4>
+            <div class="flex items-center justify-evenly gap-4 w-full">
+                <IconDress class:list={"w-20 text-dusty-rose-500"} />
+                <IconTie class:list={"w-20 text-dusty-rose-500"}/>
+            </div>
         </body>
-        <footer class="flex items-center justify-evenly gap-4 w-full">
-            <IconDress class:list={"w-20 text-dusty-rose-500"} />
-            <IconTie class:list={"w-20 text-dusty-rose-500"}/>
+        <footer class="flex flex-col items-center justify-evenly gap-4 w-full text-dusty-rose-300 bg-dusty-rose-700/50 px-4 py-4 rounded-xl">
+            <h4 class="text-lg">NOTA DE CORSÍA</h4>
+            <h6 class="text-lg">El color rosa es exclusivo de la quinceañera, ¡Gracias por su comprensión y cariño!</h6>
         </footer>
-        <h6 class="text-dusty-rose-300 bg-dusty-rose-700/50 px-4 py-4 rounded-xl">EL COLOR ROSA ES EXCLUSIVO DE LA QUINCEAÑERA, ¡GRACIAS!</h6>
     </article>
     <img src="/divider1.png" alt="divider" class="px-12" />
     <!-- GIFTS  -->
