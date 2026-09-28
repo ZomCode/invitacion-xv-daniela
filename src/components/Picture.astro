@@ -3,17 +3,24 @@ interface Props {
     src: string;
     alt: string;
     class?: string;
+    msg: string
 }
+
+const { src, alt, msg } = Astro.props
 ---
 
-<article class:list={[
-    "flex flex-col items-center justify-center",
-    "bg-gray-100 shadow-2xl",
-    "p-2 md:p-6 pb-16 md:pb-20",
-    "w-46 sm:w-56 md:w-66 lg:w-76", 
-    Astro.props.class]}>
-    <picture class="border border-dusty-rose-500 aspect-square w-full object-cover mt-2">
-        <source src={Astro.props.src} type="image/webp">
-        <img src={Astro.props.src} alt={Astro.props.alt}>
+<article 
+    class:list={[
+        "flex flex-col items-center justify-center",
+        "bg-gray-100 shadow-2xl",
+        "p-2 w-[250px] translate-y-1/3",
+        "hover:scale-180 hover:z-30 group",
+        "active:scale-180 active:z-30 transition-all duration-800",
+        Astro.props.class]}
+>
+    <picture class="border border-dusty-rose-500 aspect-square w-full object-cover mt-2 pointer-events-none group overflow-hidden transition-all duration-1000 *:group-active:scale-110 *:group-hover:scale-110 *:transition *:ease-in-out *:duration-1000">
+        <source src={ src } type="image/webp">
+        <img src={ src } alt={ alt } loading="lazy">
     </picture>
+    <h3 class="flex items-center justify-center text-3xl text-dusty-rose-600 font-dancing py-8 select-none">{ msg }</h3>
 </article>
