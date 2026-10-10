@@ -1,19 +1,33 @@
 ---
 import Section from '@/components/Section.astro';
 
+import H2 from '@/assets/h2-title.astro';
 import H3 from '@/assets/h3-title.astro';
+import IconWoman from '@/assets/icon-woman.astro';
+import IconMan from '@/assets/icon-man.astro';
 import IconWhatsapp from '@/assets/icon-whatsapp.astro';
+import Paragraph from '@/assets/Paragraph.astro';
 ---
 <Section class:list={"min-h-svh items-center justify-around w-full bg-[url('/bg-1.webp')] bg-cover bg-center bg-no-repeat"}>
-    <article class="flex flex-col items-center justify-center w-full px-8">
-        <a href="#" referrerpolicy="no-referrer" class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4">
-            <IconWhatsapp class:list={"text-dusty-rose-800 w-12"}/>
-            <p class="text-2xl">CONFIRMAR</p>
-        </a>
-    </article>
-    <header class="flex flex-col items-center justify-center w-full px-2 py-8 gap-4">
-        <H3>CONFIRMA TU ASISTENCIA</H3>
-        <p>Quiero compartir este momento tan espacial contigo.</p>
-        <p>Por favor ayudanos a confirmar tu asistencia.</p>
+    <header class="flex flex-col items-center justify-center px-4 py-8 gap-4 rounded-2xl">
+        <h2 class="text-dusty-rose-800 text-3xl font-dancing">CONFIRMA TU ASISTENCIA</h2>
+        <p class="text-dusty-rose-700 text-xl">Quiero compartir este momento tan espacial contigo.</p>
+        <p class="text-dusty-rose-700 text-xl">Por favor ayudanos a confirmar tu asistencia.</p>
     </header>
+    <section class="flex flex-col items-center justify-center gap-4">
+        <article class="flex flex-col items-center justify-center w-full px-8">
+            <a href="https://api.whatsapp.com/send?phone=2222729399&text=Hola,%20confirmo%20asistencia!." target="_blank" referrerpolicy="no-referrer" class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4">
+                <IconWhatsapp class:list={"text-dusty-rose-800 w-12"}/>
+                <p class="text-2xl">CONFIRMAR</p>
+                <IconWoman class:list={"text-dusty-rose-800 w-12"}/>
+            </a>
+        </article>
+        <article class="flex flex-col items-center justify-center w-full px-8">
+            <a href="https://api.whatsapp.com/send?phone=2223110033&text=Hola,%20confirmo%20asistencia!." target="_blank" referrerpolicy="no-referrer" class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4">
+                <IconWhatsapp class:list={"text-dusty-rose-800 w-12"}/>
+                <p class="text-2xl">CONFIRMAR</p>
+                <IconMan class:list={"text-dusty-rose-800 w-12"}/>
+            </a>
+        </article>
+    </section>
 </Section>
