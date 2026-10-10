@@ -10,20 +10,14 @@
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
+@property --mp-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @theme{
   --font-dancing: 'Dancing Script Variable', cursive;
-
-  --color-candy-50: #ffe5e7;
-  --color-candy-100: #ffcccf;
-  --color-candy-200: #ff999e;
-  --color-candy-300: #ff666e;
-  --color-candy-400: #ff333d;
-  --color-candy-500: #ff000d;
-  --color-candy-600: #cc000a;
-  --color-candy-700: #990008;
-  --color-candy-800: #660005;
-  --color-candy-900: #330003;
-  --color-candy-950: #240002;
 
   --color-dusty-rose-50: #f6eeee;
   --color-dusty-rose-100: #eeddde;
@@ -38,4 +32,25 @@
   --color-dusty-rose-950: #180c0d;
 
   --color-golden: #cdad72;
+
+  --animate-bg-mediaplayer: bg-mediaplayer 5s linear infinite;
+  --animate-glint-mediaplayer: glint-mediaplayer 4s ease-in-out infinite;
+
+  @keyframes bg-mediaplayer {
+    to {
+      --mp-angle: 360deg;
+    }
+  }
+
+  @keyframes glint-mediaplayer {
+    0%, 100% {
+      transform: translateX(-35%);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translateX(35%);
+      opacity: 0.7;
+    }
+  }
 }
+
