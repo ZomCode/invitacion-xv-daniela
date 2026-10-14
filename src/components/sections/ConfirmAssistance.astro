@@ -1,33 +1,112 @@
 ---
 import Section from '@/components/Section.astro';
 
-import H2 from '@/assets/h2-title.astro';
-import H3 from '@/assets/h3-title.astro';
 import IconWoman from '@/assets/icon-woman.astro';
 import IconMan from '@/assets/icon-man.astro';
 import IconWhatsapp from '@/assets/icon-whatsapp.astro';
-import Paragraph from '@/assets/Paragraph.astro';
+
+const telefono1 = "2222729399";
+const telefono2 = "2224110033";
 ---
-<Section class:list={"min-h-svh items-center justify-around w-full bg-[url('/bg-1.webp')] bg-cover bg-center bg-no-repeat"}>
+<Section class:list={"min-h-svh items-center justify-center w-full bg-[url('/bg-1.webp')] bg-cover bg-center bg-no-repeat py-12"}>
     <header class="flex flex-col items-center justify-center px-4 py-8 gap-4 rounded-2xl">
-        <h2 class="text-dusty-rose-800 text-3xl font-dancing">CONFIRMA TU ASISTENCIA</h2>
+        <h2 class="text-dusty-rose-800 text-2xl font-dancing">CONFIRMA TU ASISTENCIA</h2>
         <p class="text-dusty-rose-700 text-xl">Quiero compartir este momento tan espacial contigo.</p>
-        <p class="text-dusty-rose-700 text-xl">Por favor ayudanos a confirmar tu asistencia.</p>
     </header>
     <section class="flex flex-col items-center justify-center gap-4">
         <article class="flex flex-col items-center justify-center w-full px-8">
-            <a href="https://api.whatsapp.com/send?phone=2222729399&text=Hola,%20confirmo%20asistencia!." target="_blank" referrerpolicy="no-referrer" class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4">
-                <IconWhatsapp class:list={"text-dusty-rose-800 w-12"}/>
-                <p class="text-2xl">CONFIRMAR</p>
-                <IconWoman class:list={"text-dusty-rose-800 w-12"}/>
-            </a>
+            <p class="text-dusty-rose-700 text-lg">Nos gustaria saber cuantas personas vendrán.</p>
+            <p class="text-dusty-rose-700 text-lg">Por favor ayudanos a confirmar tu asistencia y comentanos cuantas personas vendrán, incluyendote.</p>
+            <div class="flex flex-col items-center justify-center w-full gap-4">
+                <label for="invitado" class="text-dusty-rose-800 text-lg font-bold">Cuentanos quien vendrá</label>
+                <input type="text" name="invitado" id="invitado" placeholder="Nombre completo" required class="w-full h-18 bg-dusty-rose-50 border border-dusty-rose-900 rounded-2xl px-4 py-2 text-dusty-rose-800 text-lg font-bold focus:outline-none focus:ring focus:ring-dusty-rose-800 focus:ring-opacity-50"/>
+            </div>
+            <div class="flex flex-col items-center justify-center w-full gap-4">
+                <label for="invitados" class="text-dusty-rose-800 text-lg font-bold">¿Cuántas personas vendrán?</label>
+                <div class="flex justify-center items-center gap-8 w-18 h-18 bg-dusty-rose-50 border border-dusty-rose-900 rounded-2xl">
+                    <select name="invitados" id="invitados" class="w-full h-full bg-transparent text-center text-dusty-rose-800 text-3xl font-bold appearance-none active:appearance-none">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">+10</option>
+                    </select>
+                </div>
+            </div>
+            <p id="etiqueta-invitado" class="text-dusty-rose-800 text-2xl hidden">INVITADO</p>
         </article>
-        <article class="flex flex-col items-center justify-center w-full px-8">
-            <a href="https://api.whatsapp.com/send?phone=2224110033&text=Hola,%20confirmo%20asistencia!." target="_blank" referrerpolicy="no-referrer" class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4">
-                <IconWhatsapp class:list={"text-dusty-rose-800 w-12"}/>
-                <p class="text-2xl">CONFIRMAR</p>
-                <IconMan class:list={"text-dusty-rose-800 w-12"}/>
+        <article class="flex flex-col items-center justify-center w-full gap-8">
+            <a 
+                data-whatsapp
+                data-telefono={ telefono1 }
+                data-mensaje="Hola!, soy {invitado} y confirmo mi asistencia. {iremos} {n} {personas}"
+                class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4"
+                href="#"
+                target="_blank"
+                referrerpolicy="no-referrer" 
+            >
+                <IconWhatsapp class:list={"text-dusty-rose-800 w-6"}/>
+                <p class="text-lg">CONFIRMAR</p>
+                <IconWoman class:list={"text-dusty-rose-800 w-6"}/>
+            </a>
+            <a 
+                data-whatsapp
+                data-telefono={ telefono2 }
+                data-mensaje="Hola!, soy {invitado} y confirmo mi asistencia. {iremos} {n} {personas}"
+                class="flex items-center justify-center gap-4 text-dusty-rose-800 bg-dusty-rose-800/15 border border-dusty-rose-900 rounded-full px-8 py-4"
+                href="#"
+                target="_blank"
+                referrerpolicy="no-referrer" 
+            >
+                <IconWhatsapp class:list={"text-dusty-rose-800 w-6"}/>
+                <p class="text-lg">CONFIRMAR</p>
+                <IconMan class:list={"text-dusty-rose-800 w-6"}/>
             </a>
         </article>
     </section>
 </Section>
+
+
+<script>
+    let cantidad = 1;
+
+    const text = document.getElementById('invitado') as HTMLInputElement | null;
+    const select = document.getElementById('invitados') as HTMLSelectElement | null;
+    const etiqueta = document.getElementById('etiqueta-invitados');
+    const enlaces = document.querySelectorAll<HTMLAnchorElement>('[data-whatsapp]');
+    console.log('enlaces', enlaces);
+
+    const actualizar = () => {
+        if (etiqueta) {
+            etiqueta.textContent = cantidad > 1 ? 'INVITADOS' : 'INVITADO';
+        }
+
+        enlaces.forEach((enlace) => {
+            const { telefono, mensaje } = enlace.dataset;
+            const texto = (mensaje ?? '')
+                .replace('{n}', cantidad === 1 ? '' : String(cantidad))
+                .replace('{iremos}', cantidad > 1 ? 'Iremos' : 'Iré solo pero ahí estaré!.')
+                .replace('{personas}', cantidad > 1 ? 'personas' : '')
+                .replace('{invitado}', text?.value?.toUpperCase() || 'Invitado');
+            enlace.href = `https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`;
+        });
+    };
+
+    const cantidadInvitados = (value: number) => {
+        cantidad = value;
+        actualizar();
+    };
+
+    select?.addEventListener('change', () => {
+        cantidadInvitados(Number(select.value));
+    });
+
+    actualizar(); // estado inicial
+</script>
